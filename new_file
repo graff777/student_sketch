@@ -1,0 +1,35 @@
+import sys
+student_one={'имя':'Александр', 'возраст':24, 'специальность':'ТК'}
+student_two={'имя':'Сергей', 'возраст':23, 'специальность':'ТК'}
+student_three={'имя':'Артур', 'возраст':24, 'специальность':'ПГМА'}
+def input_name():
+    global student_name
+    print('Введите имя студента')
+    student_name=str(input())
+def povtor_vvod():
+    print('повторно будете вводить?')
+    asd=str(input())
+    if asd=='да':
+        input_name()
+    elif asd=='нет':
+        sys.exit('good bye')
+
+def function_student(student_people):
+    print('имя студента: '+ student_people['имя'])
+    print('возраст студента: ' + str(student_people['возраст']))
+    print('специальность: ' + student_people['специальность'])
+def search_student():
+    if student_name in student_one.values():
+        function_student(student_one)
+        povtor_vvod()
+    elif student_name in student_two.values():
+        function_student(student_two)
+        povtor_vvod()
+    elif student_name in student_three.values():
+        function_student(student_three)
+        povtor_vvod()
+    else:
+        print('Такого имени студента нет, повторите попытку')
+        print('Введите имя студента')
+input_name()
+search_student()
